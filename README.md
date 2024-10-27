@@ -1,3 +1,5 @@
+<h3> Todas as respostas estão dentro do arquivo " main.py " </h3>
+
 # CRUD-with-Python
 <h1> Sistema de Funcionarios Simples </h1>
 <h2> Tela Inicial do Sistema </h2>
