@@ -1,61 +1,4 @@
 """
-Diagrama de Atividade do CRUD
-
-      Início
-        |
-Adicionar Funcionário
-        |
-Solicitar Dados
-        |
-        V
- Dados Válidos?
-   |        |
-  Sim      Não
-   |        |
-Inserir | Mostrar Erro
-   |
-Listar Funcionários
-        |
-    Mostrar Lista
-        |
-        V
- Editar Funcionário
-         |
-     Solicitar ID
-         |
-         V
-Funcionário Existe?
-   |             |
-  Sim           Não
-   |             |
-Recuperar | Mostrar Erro
-   |
- Solicitar Novos Dados
-          |
-          V
-    Dados Válidos?
-   |            |
-  Sim          Não
-   |            |
-Atualizar | Mostrar Erro
-   |
-Deletar Funcionário
-   |
-Solicitar ID
-   |
-   V
-Funcionário Existe?
-   |                        |
-  Sim                      Não
-   |                        |
-Marcar como inativo | Mostrar Erro
-        |
-        V
-       Fim
-"""
-
-
-"""
 Resposta Relatório 1
 
 SELECT funcionario as Funcionario,
@@ -77,6 +20,7 @@ WHERE ativo = 1
 group by cargo
 
 """
+
 from flet import *
 import sqlite3 as sql
 
@@ -182,9 +126,9 @@ def renderizar_todos(e, page, todos_dados):
     for row in dados_atualizados:
         todos_dados.controls.append(
             ListTile(
-                subtitle=Text(row[0], font_family='Poppins2'),  # ID
-                title=Text(row[1], font_family='Poppins2'),  # Nome do funcionário
-                leading=Text(row[2], font_family='Poppins2'),  # Cargo
+                subtitle=Text(row[0], font_family='Poppins2'), 
+                title=Text(row[1], font_family='Poppins2'), 
+                leading=Text(row[2], font_family='Poppins2'),  
                 on_click=lambda e: abrir_editar(e, page, todos_dados)
             )
         )
@@ -199,9 +143,9 @@ def renderizar_todos_inativos(e, page, todos_dados):
     for row in dados_atualizados:
         todos_dados.controls.append(
             ListTile(
-                title=Text(row[1], font_family='Poppins2'),  # Nome do funcionário
-                subtitle=Text(row[0], font_family='Poppins2'),  # ID
-                leading=Text(row[2], font_family='Poppins2'),  # Cargo
+                title=Text(row[1], font_family='Poppins2'),
+                subtitle=Text(row[0], font_family='Poppins2'), 
+                leading=Text(row[2], font_family='Poppins2'),  
                 on_click=lambda e: abrir_editar_inativos(e, page, todos_dados)
             )
         )
